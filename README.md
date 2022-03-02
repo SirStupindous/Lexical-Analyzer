@@ -1,2 +1,6 @@
 ﻿# lexical-analyzer-project-nej
-Participents - Nicholas, Josh, Ethan
+Participents -   
+Ethan Stupin  
+Joshua Benson  
+Nicholas Ayson  
+
