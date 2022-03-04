@@ -2,5 +2,5 @@
 Participents -   
 Ethan Stupin  
 Joshua Benson  
-Nicholas Ayson  
+Nicholas Ayson  nick.ayson@csu.fullerton.edu
 
