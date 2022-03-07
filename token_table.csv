@@ -1,8 +1,12 @@
 addOp,2
+addOp,38
+addOp,40
 assignOp,3
+assignOp,39
 Char,7
 Comma,8
 Comparator,10
+Comparator,42
 floatLiteral,12
 floatLiteral,15
 incrOp,17
@@ -13,10 +17,12 @@ intLiteral,22
 intLiteral,23
 intLiteral,24
 intLiteral,25
+intLiteral,37
 leftBrace,26
 logicalNot,27
 leftParen,28
 multOp,29
+multOp,41
 rightBrace,30
 rightParen,31
 Semicolon,32
