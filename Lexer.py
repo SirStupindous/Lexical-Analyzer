@@ -1,4 +1,4 @@
-class Lexer:
+class Lexer: 
     """
     The class that will perform lexical analysis, given the proper inputs.
     """
