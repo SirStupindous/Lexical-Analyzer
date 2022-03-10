@@ -13,9 +13,18 @@
 #           return(token)	
 #  }
 
+import sys
+import csv
 from Lexer import Lexer
 
+def main():
+    
+    # if len(sys.argv) != 4:
+    #     print("python3 main.py [reserved_word_list.csv] [token_table.csv] [scanning.csv]")
+    # exit(0)
+    
+    reserved_word_list_filename = sys.argv[1]
+    token_table_filename = sys.argv[2]
+    scanning_table_filename = sys.argv[3]
 
-function Lexer(Lexer){
-    for( x in Lexer)
-}
+
