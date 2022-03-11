@@ -1,7 +1,5 @@
 import os
-import sys
-
-class Parser:
+class Splitter:
 
     def __init__(self, scanning_table_filename, token_table_filename, reserved_word_table_filename, source_filename):
         self.scanning_table_filename = scanning_table_filename
@@ -14,31 +12,30 @@ class Parser:
         return (self.__parse_scanning_table(), self.__parse_token_table(), self.__parse_reserved_word(), self.__parse_source_code())
 
     def __parse_scanning_table(self):
+        # whole file is read as a string
         table_string = self.__read_file_as_string(self.scanning_table_filename)
-        # # data = sys.stdin.readlines()
-        # #  for line in data:                      # ok line is a variable pointing to a string from data
-        # #      for c in chars:                    # ok you process all of your special characters
-        # #         line = ''.join(line.split(c))  # line is now a brand new clean string...
-        # #                                 #  that you forget at once without changing data!
+        #rows are split by a newline
         rows = table_string.split('\n')
+        # line 1 is split by commas
         line1data = rows[0].rstrip().split(',')
         row_length = len(line1data) # asumption that all rows are same length
         char_map_string = "0"
+        # for row in line1data:
+        # # row variable is a list that represents a row in csv
+        #     print(row)
         for i in range(1,row_length):
             # this is the part we are stuck at
-            char_map_string = chr(int(line1data[i]))
+            char_map_string = line1data[i]
         scanning_table = {}
         for i in range(1, len(rows)):
             line_data = rows[i].rstrip().split(',')
             if len(line_data) != row_length:
                 continue # ignore malformed row
-            current_state = int(line_data[0])
+            current_state = line_data[0]
+            print(current_state)
             column_lookup = {}
             for j in range(1, len(line_data)):
-                if len(line_data[j]) == 1 or line_data[j][0] == 13:
-                    state = -1
-                else:
-                    state = int(line_data[j])
+                state = line_data[j]
                 column_lookup[char_map_string[j]] = state
             scanning_table[current_state] = column_lookup
         return scanning_table
@@ -51,7 +48,7 @@ class Parser:
             line_tuple = rows[i].split(',')
             if len(line_tuple) != 2:
                 continue # skip non tuple lines
-            state = int(line_tuple[0])
+            state = line_tuple[0]
             token = str(line_tuple[1])
             if len(token) == 0 or token[0] == 13:
                 token = 'error'

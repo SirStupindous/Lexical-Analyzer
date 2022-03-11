@@ -1,11 +1,24 @@
-
+# function lexer()
+# {
+#      repeat
+#            getchar();
+#            If input char terminates a token 
+#                AND it is an accepting state then
+#                    Isolate the token/lexeme
+#                    decrement the  CP if necessary
+#           else  lookup FSM (current state, input char);
+#      until (token found) or (no more input)
+     
+#     If token found then
+#           return(token)	
+#  }
 class Lexer:
 
-    def __init__(self, scanning_table, token_table, source_code, reserved_word):
+    def __init__(self, scanning_table, token_table, reserved_word, source_code):
         self.scanning_table = scanning_table
         self.token_table = token_table
-        self.source_code = source_code
         self.reserved_word = reserved_word
+        self.source_code = source_code
 
     def perform_analysis(self):
         # @return: A list of tokens representing the token stream.
@@ -26,11 +39,11 @@ class Lexer:
         image = ""
         remembered_state = 0
         while True:
+            # gets the character in the file
             current_character = self.__get_character()
             action = self.__choose_action(current_state, current_character)
             if action == 0: # move
-                if current_state in self.token_table.keys() and \
-                    not self.token_table[current_state] == 'error':
+                if current_state in self.token_table.keys() and self.token_table[current_state] != 'error':
                     # could be in a final state
                     remembered_state = current_state
                     remembered_chars = ""
