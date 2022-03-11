@@ -1,0 +1,3 @@
+ (define x #xff/4-7/ai)
+(cons   x   (cdr  ' (+  29.25+i  2925hello)))
+ (/ +i   #o77 (+ #b0010-11i) 22.3)
