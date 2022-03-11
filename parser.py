@@ -1,4 +1,5 @@
 import os
+import sys
 
 class Parser:
 
@@ -14,6 +15,11 @@ class Parser:
 
     def __parse_scanning_table(self):
         table_string = self.__read_file_as_string(self.scanning_table_filename)
+        # # data = sys.stdin.readlines()
+        # #  for line in data:                      # ok line is a variable pointing to a string from data
+        # #      for c in chars:                    # ok you process all of your special characters
+        # #         line = ''.join(line.split(c))  # line is now a brand new clean string...
+        # #                                 #  that you forget at once without changing data!
         rows = table_string.split('\n')
         line1data = rows[0].rstrip().split(',')
         row_length = len(line1data) # asumption that all rows are same length
@@ -28,7 +34,7 @@ class Parser:
             current_state = int(line_data[0])
             column_lookup = {}
             for j in range(1, len(line_data)):
-                if len(line_data[j]) == 0 or line_data[j][0] == 13:
+                if len(line_data[j]) == 1 or line_data[j][0] == 13:
                     state = -1
                 else:
                     state = int(line_data[j])
