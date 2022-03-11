@@ -25,7 +25,8 @@ class Parser:
         row_length = len(line1data) # asumption that all rows are same length
         char_map_string = "0"
         for i in range(1,row_length):
-            char_map_string += chr(int(line1data[i]))
+            # this is the part we are stuck at
+            char_map_string = chr(int(line1data[i]))
         scanning_table = {}
         for i in range(1, len(rows)):
             line_data = rows[i].rstrip().split(',')
