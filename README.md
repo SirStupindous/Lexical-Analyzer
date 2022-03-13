@@ -12,12 +12,12 @@ Command to RUN:
 
 INPUT:
 >int main() {  
-	>// This is a single line comment.  
-	>float _id_a_t = 10.0E+4;  
-      >float _id_b_t = 2.7;  
-      >float result = _id_a_t + _id_b_t;  
-      >result*=3;  
-      >print(result);  
+	// This is a single line comment.  
+	float _id_a_t = 10.0E+4;  
+      float _id_b_t = 2.7;  
+      float result = _id_a_t + _id_b_t;  
+      result*=3;  
+      print(result);  
 >}    
   
 OUTPUT:
