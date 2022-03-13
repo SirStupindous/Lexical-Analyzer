@@ -25,13 +25,14 @@ class Splitter:
         #     print(row)
         for i in range(1,row_length):
             # this is the part we are stuck at
-            char_map_string = line1data[i]
+            # print(chr(97)) =a
+            char_map_string += chr(int(line1data[i]))
         scanning_table = {}
         for i in range(1, len(rows)):
             line_data = rows[i].rstrip().split(',')
             if len(line_data) != row_length:
                 continue # ignore malformed row
-            current_state = line_data[0]
+            current_state = int(line_data[0])
             print(current_state)
             column_lookup = {}
             for j in range(1, len(line_data)):
