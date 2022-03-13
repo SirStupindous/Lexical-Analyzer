@@ -1,30 +1,16 @@
-# function lexer()
-# {
-#      repeat
-#            getchar();
-#            If input char terminates a token 
-#                AND it is an accepting state then
-#                    Isolate the token/lexeme
-#                    decrement the  CP if necessary
-#           else  lookup FSM (current state, input char);
-#      until (token found) or (no more input)
-     
-#     If token found then
-#           return(token)	
-#  }
+#Source Code By: Dalton Caron
+#Edited by: Nicholas Ayson and Ethan Stupin
 class Lexer:
-
-    def __init__(self, scanning_table, token_table, reserved_word, source_code):
+    def __init__(self, scanning_table, token_table, source_code, reserved_word):
         self.scanning_table = scanning_table
         self.token_table = token_table
-        self.reserved_word = reserved_word
         self.source_code = source_code
+        self.reserved_word = reserved_word
 
     def perform_analysis(self):
-        # @return: A list of tokens representing the token stream.
         self.current_token = 0
         tokens = []
-        black_list = ["whitespace", "newline", "comment"]
+        black_list = ["Whitespace", "newline", "comment"]
         while self.current_token < len(self.source_code):
             token = self.__get_token()
             if token[1] in black_list:
@@ -33,17 +19,16 @@ class Lexer:
         return tokens
 
     def __get_token(self):
-        # @return: A single token.
         remembered_chars = ""
         current_state = 0
         image = ""
         remembered_state = 0
         while True:
-            # gets the character in the file
             current_character = self.__get_character()
             action = self.__choose_action(current_state, current_character)
             if action == 0: # move
-                if current_state in self.token_table.keys() and self.token_table[current_state] != 'error':
+                if current_state in self.token_table.keys() and \
+                    not self.token_table[current_state] == 'error':
                     # could be in a final state
                     remembered_state = current_state
                     remembered_chars = ""
@@ -66,7 +51,7 @@ class Lexer:
                      + str(remembered_state) , "error")
             image += current_character
         token_tuple = (image, token)
-        token_tuple = self.__keyword_check(token_tuple)
+        token_tuple = self.__reserved_word_check(token_tuple)
         return token_tuple
 
     def __choose_action(self, current_state, current_character):
@@ -91,7 +76,7 @@ class Lexer:
             self.current_token += 1
             return 0
     
-    def __keyword_check(self, token_tuple):
-        if token_tuple[1] == "identifier" and token_tuple[0] in self.reserved_word:
-            return (token_tuple[0], "keyword")
+    def __reserved_word_check(self, token_tuple):
+        if token_tuple[1] == "Identifier" and token_tuple[0] in self.reserved_word:
+            return (token_tuple[0], "reserved_word")
         return token_tuple
