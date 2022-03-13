@@ -32,7 +32,7 @@ class Splitter:
             line_data = rows[i].rstrip().split(',')
             if len(line_data) != row_length:
                 continue # ignore malformed row
-            current_state = int(line_data[0])
+            current_state = int(line_data[1])
             print(current_state)
             column_lookup = {}
             for j in range(1, len(line_data)):
