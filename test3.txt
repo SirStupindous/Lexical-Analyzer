@@ -1,0 +1,3 @@
+int main() {
+	floa a = 5; 
+    }

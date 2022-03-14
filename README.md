@@ -9,6 +9,7 @@ Nicholas Ayson - NFA, Scanning Table, Token Table, Reserved Word Table
   
 Command to RUN:  
 > python3 main.py scanning.csv token_table.csv reserved_word.csv test1.txt  
+> PLEASE PUT IN CUSTOM INPUT FILE
 
 INPUT:
 >int main() {  
@@ -19,6 +20,12 @@ INPUT:
       result*=3;  
       print(result);  
 >}    
+  
+>int main() {
+    /* This is a C program. */
+    printf ( "HelloWorld\n" ) ;
+    return 0; 
+>   }
   
 OUTPUT:
 >(0, ('int', 'reserved_word'))  
@@ -52,3 +59,23 @@ OUTPUT:
 >(29, ('(result', 'Identifier'))  
 >(30, (');', 'Semicolon'))  
 >(31, ('\n}', 'rightBrace'))  
+
+>(0, ('int', 'reserved_word'))
+>(1, (' main', 'Identifier'))
+>(2, ('()', 'rightParen'))
+>(3, (' {', 'leftBrace'))
+>(4, (' /', 'multOp'))
+>(5, ('This', 'Identifier'))
+>(6, (' is', 'Identifier'))
+>(7, (' a', 'Identifier'))
+>(9, (' program', 'Identifier'))
+>(10, ('*/', 'multOp'))
+>(11, (' printf', 'Identifier'))
+>(12, (' (', 'leftParen'))
+>(13, (' "HelloWorld\\n"', 'String'))
+>(14, (' )', 'rightParen'))
+>(15, (' ;', 'Semicolon'))
+>(16, (' return', 'Identifier'))
+>(17, (' 0', 'intLiteral'))
+>(18, (' }', 'rightBrace'))
+>Reached end of token stream. Ending program.

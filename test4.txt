@@ -1,0 +1,6 @@
+int main() {
+	/* This is a valid
+	    multi line comment.
+	*/ 
+	float 3threes = 33.3;
+    }

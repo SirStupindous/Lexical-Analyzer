@@ -16,7 +16,6 @@ class Splitter:
             self.__parse_source_code(), self.__parse_keywords())
 
     def __parse_lexical_table(self):
-
         table_string = self.__read_file_as_string(self.scanning_table_filename)
         rows = table_string.split('\n')
         line1data = rows[0].rstrip().split(',')
@@ -50,7 +49,7 @@ class Splitter:
                 continue # skip non tuple lines
             state = int(line_tuple[0])
             token = str(line_tuple[1])
-            if len(token) == 0 or token[0] == 13:
+            if len(token) == 0 or token[0] == 41 :
                 token = 'error'
             else:
                 token = token.rstrip() # strip newline and carridge return

@@ -10,7 +10,7 @@ class Lexer:
     def perform_analysis(self):
         self.current_token = 0
         tokens = []
-        black_list = ["Whitespace", "newline", "comment"]
+        black_list = ["Whitespace"]
         while self.current_token < len(self.source_code):
             token = self.__get_token()
             if token[1] in black_list:
