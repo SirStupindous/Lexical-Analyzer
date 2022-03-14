@@ -21,11 +21,11 @@ INPUT:
       print(result);  
 >}    
   
->int main() {
-    /* This is a C program. */
-    printf ( "HelloWorld\n" ) ;
-    return 0; 
->   }
+>int main() {  
+    /* This is a C program. */  
+    printf ( "HelloWorld\n" ) ;  
+    return 0;   
+>   }  
   
 OUTPUT:
 >(0, ('int', 'reserved_word'))  
@@ -60,22 +60,22 @@ OUTPUT:
 >(30, (');', 'Semicolon'))  
 >(31, ('\n}', 'rightBrace'))  
 
->(0, ('int', 'reserved_word'))
->(1, (' main', 'Identifier'))
->(2, ('()', 'rightParen'))
->(3, (' {', 'leftBrace'))
->(4, (' /', 'multOp'))
->(5, ('This', 'Identifier'))
->(6, (' is', 'Identifier'))
->(7, (' a', 'Identifier'))
->(9, (' program', 'Identifier'))
->(10, ('*/', 'multOp'))
->(11, (' printf', 'Identifier'))
->(12, (' (', 'leftParen'))
->(13, (' "HelloWorld\\n"', 'String'))
->(14, (' )', 'rightParen'))
->(15, (' ;', 'Semicolon'))
->(16, (' return', 'Identifier'))
->(17, (' 0', 'intLiteral'))
->(18, (' }', 'rightBrace'))
->Reached end of token stream. Ending program.
+>(0, ('int', 'reserved_word'))  
+>(1, (' main', 'Identifier'))  
+>(2, ('()', 'rightParen'))  
+>(3, (' {', 'leftBrace'))  
+>(4, (' /', 'multOp'))  
+>(5, ('This', 'Identifier'))  
+>(6, (' is', 'Identifier'))  
+>(7, (' a', 'Identifier'))  
+>(9, (' program', 'Identifier'))  
+>(10, ('*/', 'multOp'))  
+>(11, (' printf', 'Identifier'))  
+>(12, (' (', 'leftParen'))  
+>(13, (' "HelloWorld\\n"', 'String'))  
+>(14, (' )', 'rightParen'))  
+>(15, (' ;', 'Semicolon'))  
+>(16, (' return', 'Identifier'))  
+>(17, (' 0', 'intLiteral'))  
+>(18, (' }', 'rightBrace'))  
+>Reached end of token stream. Ending program.  
