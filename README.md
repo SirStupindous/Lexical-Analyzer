@@ -9,7 +9,7 @@ Nicholas Ayson - NFA, Scanning Table, Token Table, Reserved Word Table
   
 Command to RUN:  
 > python3 main.py scanning.csv token_table.csv reserved_word.csv test1.txt  
-> PLEASE PUT IN CUSTOM INPUT FILE
+> ***PLEASE PUT IN CUSTOM test.txt FILE***
 
 INPUT:
 >int main() {  
